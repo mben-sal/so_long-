@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:11:03 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/03/19 19:50:02 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/03/21 20:04:06 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include<string.h>
 # include <sys/errno.h>
 # include <errno.h>
+#include <mlx.h>
 
 typedef struct s_spl
 {
@@ -44,6 +45,9 @@ typedef struct s_game
 	int 	check_p;
 	int		len_map;
 	int		longeur_map;
+	void	*img;
+	void	*mlx;
+	void	*win;
 	char	**map;
 }	t_game;
 

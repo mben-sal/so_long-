@@ -6,7 +6,7 @@
 #    By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 19:42:40 by mben-sal          #+#    #+#              #
-#    Updated: 2023/03/19 19:48:54 by mben-sal         ###   ########.fr        #
+#    Updated: 2023/03/21 19:43:54 by mben-sal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,8 @@ SRC = 	./so_long.c\
 		./ft_check_element.c 
 		
 
+%.o: %.c
+	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 OBJ = $(SRC:.c=.o)
 
 CFLAGS = -Wall -Werror -Wextra
@@ -35,7 +37,7 @@ CC = gcc
 all : $(NAME)
 
 $(NAME) : $(OBJ) $(HEADER)
-			$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+			$(CC) $(CFLAGS) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
 		rm -rf $(OBJ)

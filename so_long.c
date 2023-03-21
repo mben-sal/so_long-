@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:59:36 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/03/19 19:54:58 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/03/21 20:56:16 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ int main(int ac , char **av)
 	ft_check_map(av[1]);
 	ft_validation_map(av[1] , &jeux);
 	ft_so_long(&jeux);
+	jeux.mlx = mlx_init();
+	jeux.win = mlx_new_window(jeux.mlx, 1800, 1000, "so_long");
+	// jeux.img = mlx_new_image(jeux.mlx, 2, 1);
+	
+	mlx_loop(jeux.mlx);
 	// int i;
 	// i = 0;
 	// while(jeux.map[i])
