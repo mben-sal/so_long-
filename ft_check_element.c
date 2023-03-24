@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 19:45:57 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/03/19 19:50:33 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/03/24 00:09:51 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,17 +74,16 @@ void ft_check_rectangulaire(t_game *jeux)
 {
 	int longeur;
 	int i;
-	int lnmap;
 	
 	i = 1;
-	lnmap = ft_strlen(jeux->map[0]);
+	jeux->lnmap = ft_strlen(jeux->map[0]);
 	longeur = jeux->longeur_map;
 	jeux->longeur_map = ft_lnmap(jeux);
-	if ( lnmap ==  longeur )
+	if ( jeux->lnmap ==  longeur )
 		ft_message_erreur(1);
 	while(jeux->map[i])
 	{
-		if(lnmap != ft_strlen(jeux->map[i]))
+		if(jeux->lnmap != ft_strlen(jeux->map[i]))
 			ft_message_erreur(1);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:11:03 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/03/21 20:04:06 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/03/24 00:09:06 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_game
 	int		check_c;
 	int 	check_p;
 	int		len_map;
+	int 	lnmap;
 	int		longeur_map;
 	void	*img;
 	void	*mlx;
