@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:11:03 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/03/24 00:09:06 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/03/25 11:23:55 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,16 @@ typedef struct s_game
 	void	*mlx;
 	void	*win;
 	char	**map;
+	void *image_door;
+	void *image_cheese;
+	void *player_1;
+	void *player_2;
+	void *player_3;
+	void *player_4;
+	void *the_lawn;
+	void *the_wall;
+	int x;
+	int y;
 }	t_game;
 
 void ft_message_erreur(int ac);
