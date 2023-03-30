@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:59:36 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/03/25 15:41:01 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/03/30 23:02:51 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void conver_image(t_game *jeux)
 
 void remplir_map(t_game *jeux)
 {
-	// int y_map;
-	// int x_map;
 	int len;
 	int i;
 	int j;
@@ -63,17 +61,11 @@ void remplir_map(t_game *jeux)
 		jeux->x = 0;
 		while(jeux->map[i][j])
 		{
-			// if(jeux->map[i][j] == '0')
 				mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->the_lawn ,jeux->x,jeux->y);
 			if(jeux->map[i][j] == '1')
 				mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->the_wall ,jeux->x,jeux->y);
 			if(jeux->map[i][j] == 'P')
-			{
-				// mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->player_1 ,jeux->x,jeux->y);
-				// mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->player_2 ,jeux->x,jeux->y);
-				// mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->player_3 ,jeux->x,jeux->y);
 				mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->player_4 ,jeux->x,jeux->y);
-			}
 			if(jeux->map[i][j] == 'C')
 				mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->image_cheese ,jeux->x,jeux->y);
 			if(jeux->map[i][j] == 'E')
@@ -86,13 +78,98 @@ void remplir_map(t_game *jeux)
 		i++;
 	}
 }
+void cherche_player(t_game *jeux)
+{
+	int i;
+	int j;
+	
+	i = 0;
+	while(jeux->map[i])
+	{
+		j = 0;
+		while(jeux->map[i][j])
+		{
+			if(jeux->map[i][j] == 'P')
+			{
+				jeux->y = i;
+				jeux->x = j;
+			}
+			j++;
+		}
+		i++;
+	}
+}
 
-// int	key_hook(int keycode, t_game *jeux)
-// {
-// 	(void)jeux;
-// 	printf("Hello from key_hook! %d\n", keycode);
-// 	return (0);
-// }
+void ft_gauche(t_game *jeux)
+{
+	if(jeux->map[jeux->y][jeux->x - 1] == '1')
+		return;
+	else if(jeux->map[jeux->y][jeux->x - 1] == 'C')
+	{
+		jeux->map[jeux->y][jeux->x] = '0';
+		jeux->map[jeux->y][jeux->x - 1] = 'P';
+	}
+	jeux->map[jeux->y][jeux->x] = '0';
+	jeux->map[jeux->y][jeux->x - 1] = 'P';
+	remplir_map(jeux);
+}
+
+void ft_droit(t_game *jeux)
+{
+	if(jeux->map[jeux->y][jeux->x + 1] == '1')
+		return;
+	else if(jeux->map[jeux->y][jeux->x + 1] == 'C')
+	{
+		jeux->map[jeux->y][jeux->x] = '0';
+		jeux->map[jeux->y][jeux->x + 1] = 'P';
+	}
+	jeux->map[jeux->y][jeux->x] = '0';
+	jeux->map[jeux->y][jeux->x + 1] = 'P';
+	remplir_map(jeux);
+}
+
+void ft_bas(t_game *jeux)
+{
+	if(jeux->map[jeux->y + 1][jeux->x ] == '1')
+		return;
+	else if(jeux->map[jeux->y + 1][jeux->x] == 'C')
+	{
+		jeux->map[jeux->y][jeux->x] = '0';
+		jeux->map[jeux->y + 1 ][jeux->x] = 'P';
+	}
+	jeux->map[jeux->y][jeux->x] = '0';
+	jeux->map[jeux->y + 1][jeux->x] = 'P';
+	remplir_map(jeux);
+}
+void ft_haut(t_game *jeux)
+{
+	if(jeux->map[jeux->y - 1][jeux->x] == '1')
+		return;
+	else if(jeux->map[jeux->y - 1][jeux->x] == 'C')
+	{
+		jeux->map[jeux->y][jeux->x] = '0';
+		jeux->map[jeux->y - 1][jeux->x ] = 'P';
+	}
+	jeux->map[jeux->y][jeux->x] = '0';
+	jeux->map[jeux->y - 1][jeux->x] = 'P';
+	remplir_map(jeux);
+}
+int	key_hook(int keycode, t_game *jeux)
+{
+	(void)jeux;
+	printf("Hello from key_hook! %d\n", keycode);
+	cherche_player(jeux);
+	if(keycode == 0)
+		ft_gauche(jeux);
+	if(keycode == 2)
+		ft_droit(jeux);
+	if(keycode == 13)
+		ft_haut(jeux);
+	if(keycode == 1)
+		ft_bas(jeux);
+	return (0);
+	
+}
 
 int main(int ac , char **av)
 {
@@ -112,12 +189,12 @@ int main(int ac , char **av)
 	jeux.win = mlx_new_window(jeux.mlx, x, y, "so_long");
 	conver_image(&jeux);
 	remplir_map(&jeux);
-	// mlx_key_hook(jeux.win, key_hook, &jeux);
+	mlx_key_hook(jeux.win, &key_hook, &jeux);
 	
 	mlx_loop(jeux.mlx);
 	// int i;
 	// i = 0;
-	// while(jeux.map[i])
+	// while(jeux.map[i])da
 	// {
 	// 	printf("%s\n" , jeux.map[i]);
 	// 	i++;
