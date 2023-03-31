@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:59:36 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/03/30 23:02:51 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/03/31 00:45:20 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,13 @@ void ft_gauche(t_game *jeux)
 		jeux->map[jeux->y][jeux->x] = '0';
 		jeux->map[jeux->y][jeux->x - 1] = 'P';
 	}
+	else if(jeux->map[jeux->y ][jeux->x - 1] == 'E')
+	{
+		count_c(jeux);
+		if(jeux->count_c == 0)
+			exit(1);
+		return;
+	}
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y][jeux->x - 1] = 'P';
 	remplir_map(jeux);
@@ -123,11 +130,37 @@ void ft_droit(t_game *jeux)
 		jeux->map[jeux->y][jeux->x] = '0';
 		jeux->map[jeux->y][jeux->x + 1] = 'P';
 	}
+	else if(jeux->map[jeux->y ][jeux->x +1 ] == 'E')
+	{
+		count_c(jeux);
+		if(jeux->count_c == 0)
+			exit(1);
+		return;
+	}
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y][jeux->x + 1] = 'P';
 	remplir_map(jeux);
 }
-
+void count_c(t_game *jeux)
+{
+	int i;
+	int j;
+	
+	i = 0;
+	while(jeux->map[i])
+	{
+		j = 0;
+		while(jeux->map[i][j])
+		{
+			if(jeux->map[i][j] == 'c')
+			{
+				jeux->count_c++;
+			}
+			j++;
+		}
+		i++;
+	}
+}
 void ft_bas(t_game *jeux)
 {
 	if(jeux->map[jeux->y + 1][jeux->x ] == '1')
@@ -136,6 +169,13 @@ void ft_bas(t_game *jeux)
 	{
 		jeux->map[jeux->y][jeux->x] = '0';
 		jeux->map[jeux->y + 1 ][jeux->x] = 'P';
+	}
+	else if(jeux->map[jeux->y + 1][jeux->x] == 'E')
+	{
+		count_c(jeux);
+		if(jeux->count_c == 0)
+			exit(1);
+		return;
 	}
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y + 1][jeux->x] = 'P';
@@ -149,6 +189,13 @@ void ft_haut(t_game *jeux)
 	{
 		jeux->map[jeux->y][jeux->x] = '0';
 		jeux->map[jeux->y - 1][jeux->x ] = 'P';
+	}
+	else if(jeux->map[jeux->y - 1][jeux->x] == 'E')
+	{
+		count_c(jeux);
+		if(jeux->count_c == 0)
+			exit(1);
+		return;
 	}
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y - 1][jeux->x] = 'P';
@@ -167,6 +214,8 @@ int	key_hook(int keycode, t_game *jeux)
 		ft_haut(jeux);
 	if(keycode == 1)
 		ft_bas(jeux);
+	if(keycode == 53)
+		exit(1);
 	return (0);
 	
 }

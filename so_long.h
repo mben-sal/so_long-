@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:11:03 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/03/25 11:23:55 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/03/31 00:45:09 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_game
 	void	*mlx;
 	void	*win;
 	char	**map;
+	int 	count_c;
 	void *image_door;
 	void *image_cheese;
 	void *player_1;
@@ -84,5 +85,5 @@ void ft_check_rectangulaire(t_game *jeux);
 void ft_check(t_game *jeux);
 void ft_check_les_element(t_game *jeux);
 int ft_lnmap(t_game *jeux);
-
+void count_c(t_game *jeux);
 # endif
