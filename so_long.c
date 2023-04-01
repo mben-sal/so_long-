@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:59:36 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/03/31 00:45:20 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/03/31 23:03:13 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,14 +104,14 @@ void ft_gauche(t_game *jeux)
 {
 	if(jeux->map[jeux->y][jeux->x - 1] == '1')
 		return;
-	else if(jeux->map[jeux->y][jeux->x - 1] == 'C')
+	if(jeux->map[jeux->y][jeux->x - 1] == 'C')
 	{
 		jeux->map[jeux->y][jeux->x] = '0';
 		jeux->map[jeux->y][jeux->x - 1] = 'P';
+		jeux->check_c--;
 	}
-	else if(jeux->map[jeux->y ][jeux->x - 1] == 'E')
+	if(jeux->map[jeux->y ][jeux->x - 1] == 'E')
 	{
-		count_c(jeux);
 		if(jeux->count_c == 0)
 			exit(1);
 		return;
@@ -125,14 +125,14 @@ void ft_droit(t_game *jeux)
 {
 	if(jeux->map[jeux->y][jeux->x + 1] == '1')
 		return;
-	else if(jeux->map[jeux->y][jeux->x + 1] == 'C')
+	if(jeux->map[jeux->y][jeux->x + 1] == 'C')
 	{
 		jeux->map[jeux->y][jeux->x] = '0';
 		jeux->map[jeux->y][jeux->x + 1] = 'P';
+		jeux->check_c--;
 	}
-	else if(jeux->map[jeux->y ][jeux->x +1 ] == 'E')
+	if(jeux->map[jeux->y ][jeux->x +1 ] == 'E')
 	{
-		count_c(jeux);
 		if(jeux->count_c == 0)
 			exit(1);
 		return;
@@ -141,38 +141,18 @@ void ft_droit(t_game *jeux)
 	jeux->map[jeux->y][jeux->x + 1] = 'P';
 	remplir_map(jeux);
 }
-void count_c(t_game *jeux)
-{
-	int i;
-	int j;
-	
-	i = 0;
-	while(jeux->map[i])
-	{
-		j = 0;
-		while(jeux->map[i][j])
-		{
-			if(jeux->map[i][j] == 'c')
-			{
-				jeux->count_c++;
-			}
-			j++;
-		}
-		i++;
-	}
-}
 void ft_bas(t_game *jeux)
 {
 	if(jeux->map[jeux->y + 1][jeux->x ] == '1')
 		return;
-	else if(jeux->map[jeux->y + 1][jeux->x] == 'C')
+	if(jeux->map[jeux->y + 1][jeux->x] == 'C')
 	{
 		jeux->map[jeux->y][jeux->x] = '0';
 		jeux->map[jeux->y + 1 ][jeux->x] = 'P';
+		jeux->check_c--;
 	}
-	else if(jeux->map[jeux->y + 1][jeux->x] == 'E')
+	if(jeux->map[jeux->y + 1][jeux->x] == 'E')
 	{
-		count_c(jeux);
 		if(jeux->count_c == 0)
 			exit(1);
 		return;
@@ -185,17 +165,18 @@ void ft_haut(t_game *jeux)
 {
 	if(jeux->map[jeux->y - 1][jeux->x] == '1')
 		return;
-	else if(jeux->map[jeux->y - 1][jeux->x] == 'C')
+	if(jeux->map[jeux->y - 1][jeux->x] == 'C')
 	{
 		jeux->map[jeux->y][jeux->x] = '0';
 		jeux->map[jeux->y - 1][jeux->x ] = 'P';
+		jeux->check_c--;
 	}
-	else if(jeux->map[jeux->y - 1][jeux->x] == 'E')
+	if(jeux->map[jeux->y - 1][jeux->x] == 'E')
 	{
-		count_c(jeux);
-		if(jeux->count_c == 0)
-			exit(1);
-		return;
+		if(jeux->check_c != 0)
+			return;
+		if(jeux->check_c == 0)
+			exit(0);
 	}
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y - 1][jeux->x] = 'P';
@@ -205,6 +186,7 @@ int	key_hook(int keycode, t_game *jeux)
 {
 	(void)jeux;
 	printf("Hello from key_hook! %d\n", keycode);
+	printf("%d ==== \n",jeux->check_c );
 	cherche_player(jeux);
 	if(keycode == 0)
 		ft_gauche(jeux);
