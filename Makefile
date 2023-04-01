@@ -6,7 +6,7 @@
 #    By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 19:42:40 by mben-sal          #+#    #+#              #
-#    Updated: 2023/03/21 19:43:54 by mben-sal         ###   ########.fr        #
+#    Updated: 2023/04/01 12:50:54 by mben-sal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ SRC = 	./so_long.c\
 		./utils/ft_putstr.c\
 		./ft_check_validation_map.c\
 		./ft_check_murs.c\
-		./ft_check_element.c 
+		./ft_check_element.c\
+		./ft_move_jerry.c\
+		./ft_remplir_image_map.c
 		
 
 %.o: %.c

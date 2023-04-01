@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:11:03 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/03/31 22:44:14 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/01 12:56:35 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,11 @@ void ft_check_rectangulaire(t_game *jeux);
 void ft_check(t_game *jeux);
 void ft_check_les_element(t_game *jeux);
 int ft_lnmap(t_game *jeux);
+void ft_gauche(t_game *jeux);
+void ft_droit(t_game *jeux);
+void ft_bas(t_game *jeux);
+void ft_haut(t_game *jeux);
+void remplir_map(t_game *jeux);
+void cherche_player(t_game *jeux);
+void conver_image(t_game *jeux);
 # endif
