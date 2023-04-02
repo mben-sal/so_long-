@@ -6,11 +6,21 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:48:31 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/01 13:58:47 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/02 13:59:31 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "so_long.h"
+
+void	moveMouse(t_game *jeux)
+{
+	// char **mouse;
+
+	mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->player[jeux->m] ,jeux->x,jeux->y);
+	jeux->m++;
+	if (jeux->m == 3)
+		jeux->m= 0;
+}
 
 void remplir_map(t_game *jeux)
 {
@@ -31,7 +41,8 @@ void remplir_map(t_game *jeux)
 			if(jeux->map[i][j] == '1')
 				mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->the_wall ,jeux->x,jeux->y);
 			if(jeux->map[i][j] == 'P')
-				mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->player_4 ,jeux->x,jeux->y);
+				moveMouse(jeux);
+				// mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->player_1, jeux->x,jeux->y);
 			if(jeux->map[i][j] == 'C')
 				mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->image_cheese ,jeux->x,jeux->y);
 			if(jeux->map[i][j] == 'E')
@@ -52,10 +63,11 @@ void conver_image(t_game *jeux)
 	
 	jeux->image_door = mlx_xpm_file_to_image(jeux->mlx ,"./minilibx/door .xpm",&x,&y);
 	jeux->image_cheese = mlx_xpm_file_to_image(jeux->mlx ,"./minilibx/cheese.xpm",&x,&y);
-	jeux->player_1 = mlx_xpm_file_to_image(jeux->mlx ,"./minilibx/Player 1.xpm",&x,&y);
-	jeux->player_2 = mlx_xpm_file_to_image(jeux->mlx ,"./minilibx/Player 2.xpm",&x,&y);
-	jeux->player_3 = mlx_xpm_file_to_image(jeux->mlx ,"./minilibx/Player 3.xpm",&x,&y);
-	jeux->player_4 = mlx_xpm_file_to_image(jeux->mlx ,"./minilibx/Player 4 .xpm",&x,&y);
 	jeux->the_lawn = mlx_xpm_file_to_image(jeux->mlx ,"./minilibx/the lawn.xpm",&x,&y);
 	jeux->the_wall = mlx_xpm_file_to_image(jeux->mlx ,"./minilibx/the wall .xpm",&x,&y);
+	jeux->player[0] = mlx_xpm_file_to_image(jeux->mlx ,"./minilibx/mouse1.xpm",&x,&y);
+	jeux->player[1] = mlx_xpm_file_to_image(jeux->mlx ,"./minilibx/mouse2.xpm",&x,&y);
+	jeux->player[2] = mlx_xpm_file_to_image(jeux->mlx ,"./minilibx/mouse3.xpm",&x,&y);
+	jeux->player[3] = mlx_xpm_file_to_image(jeux->mlx ,"./minilibx/mouse4.xpm",&x,&y);
+	
 }

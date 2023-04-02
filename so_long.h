@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:11:03 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/01 12:56:35 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/02 13:42:19 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,12 @@ typedef struct s_game
 	void *player_2;
 	void *player_3;
 	void *player_4;
+	void *player[4];
 	void *the_lawn;
 	void *the_wall;
 	int x;
 	int y;
+	int m;
 }	t_game;
 
 void ft_message_erreur(int ac);
@@ -92,4 +94,5 @@ void ft_haut(t_game *jeux);
 void remplir_map(t_game *jeux);
 void cherche_player(t_game *jeux);
 void conver_image(t_game *jeux);
+void	moveMouse(t_game *jeux);
 # endif

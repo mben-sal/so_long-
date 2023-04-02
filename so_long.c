@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:59:36 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/01 12:58:05 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/01 22:20:25 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int main(int ac , char **av)
 	initVar(&jeux);
 	ft_so_long(&jeux);
 	jeux.mlx = mlx_init();
+	jeux.m = 0;
 	x = jeux.lnmap * 60;
 	y = jeux.longeur_map * 70;
 	jeux.win = mlx_new_window(jeux.mlx, x, y, "so_long");
