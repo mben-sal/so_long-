@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 21:39:38 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/08 22:21:28 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/08 22:23:15 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ void	copier_map(t_game *jeux)
 
 void ft_validation_chemin(t_game *jeux)
 {
-	jeux->check = 0;
 	cherche_player(jeux);
 	if(!ft_check_chemin(jeux , jeux->y, jeux->x , 'E'))
 	{

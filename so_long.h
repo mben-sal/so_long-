@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:11:03 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/08 21:15:08 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/08 22:23:01 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ typedef struct s_game
 	int x;
 	int y;
 	int m;
-	int check;
+	int count;
 }	t_game;
 typedef struct s_jeux
 {

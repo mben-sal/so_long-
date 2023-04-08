@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:59:36 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/08 16:35:02 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/08 23:39:55 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	initVar(t_game *jeux)
 
 int	key_hook(int keycode, t_game *jeux)
 {
-	(void)jeux;
-	printf("Hello from key_hook! %d\n", keycode);
+	// (void)jeux; 
+	// printf("Hello from key_hook! %d\n", keycode);
 	cherche_player(jeux);
 	if(keycode == 0)
 		ft_gauche(jeux);
