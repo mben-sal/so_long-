@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:11:03 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/02 13:42:19 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/08 21:15:08 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@
 # include <sys/errno.h>
 # include <errno.h>
 #include <mlx.h>
+#include <stdbool.h>
+
+#define true 1
+#define false 0
 
 typedef struct s_spl
 {
@@ -50,6 +54,7 @@ typedef struct s_game
 	void	*mlx;
 	void	*win;
 	char	**map;
+	char **map2;
 	int 	count_c;
 	void *image_door;
 	void *image_cheese;
@@ -63,9 +68,19 @@ typedef struct s_game
 	int x;
 	int y;
 	int m;
+	int check;
 }	t_game;
+typedef struct s_jeux
+{
+	int i;
+	int j;
+	int langeur_map2;
+	int lnmap2;
+	char **map2;
+	
+}	t_jeux;
 
-void ft_message_erreur(int ac);
+void ft_message_erreur(char *str);
 int 	ft_strlen(char *str);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(char *str, int c);
@@ -95,4 +110,8 @@ void remplir_map(t_game *jeux);
 void cherche_player(t_game *jeux);
 void conver_image(t_game *jeux);
 void	moveMouse(t_game *jeux);
+void ft_validation_chemin(t_game *jeux);
+int	ft_check_chemin(t_game *jeux, int y, int x, char point );
+void	copier_map(t_game *jeux);
+
 # endif

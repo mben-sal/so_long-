@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 19:18:14 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/03/21 19:37:03 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/08 22:19:47 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void ft_check_map(char *map)
 		{
 			if(ft_strncmp(&map[i],".ber") != 0)
 			{
-				ft_message_erreur(1);
+				ft_message_erreur("erreur\n");
 			}
 		}
 		i--;
@@ -39,7 +39,7 @@ void ft_validation_map(char *av , t_game *jeux)
 	ligne = NULL;
 	fd = open(av , O_RDONLY);
 	if (fd < 0)
-		ft_message_erreur(1);
+		ft_message_erreur("erreur\n");
 	des_lignes = strdup("");
 	while (1)
 	{
@@ -49,6 +49,6 @@ void ft_validation_map(char *av , t_game *jeux)
 		des_lignes = ft_strjoin(des_lignes, ligne);
 	}
 	if (des_lignes[0] == '\0')
-		ft_message_erreur(1);
+		ft_message_erreur("erreur\n");
 	jeux->map = ft_split(des_lignes,'\n');
 }

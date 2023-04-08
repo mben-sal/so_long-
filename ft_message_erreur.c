@@ -12,9 +12,8 @@
 
 # include "so_long.h"
 
-void ft_message_erreur(int ac)
+void ft_message_erreur(char *str)
 {
-	if(ac == 1)
-		ft_putstr("erreur\n");
+		ft_putstr(str);
 	exit(1);
 }

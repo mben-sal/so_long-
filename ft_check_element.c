@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 19:45:57 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/03/24 00:09:51 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/08 13:58:25 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void ft_check_les_element(t_game *jeux)
 		i++;
 	}
 	if(jeux->check_c < 1 || jeux->check_e < 1 || jeux->check_p != 1)
-		ft_message_erreur(1);
+		ft_message_erreur("erreur\n");
 }
 void ft_check(t_game *jeux)
 {
@@ -64,7 +64,7 @@ void ft_check(t_game *jeux)
 		while(jeux->map[i][j])
 		{
 			if(jeux->map[i][j] != '1' && jeux->map[i][j] != '0'&& jeux->map[i][j] != 'C' && jeux->map[i][j] != 'P' && jeux->map[i][j] != 'E')
-				ft_message_erreur(1);
+				ft_message_erreur("erreur\n");
 			j++;
 		}
 		i++;
@@ -80,11 +80,11 @@ void ft_check_rectangulaire(t_game *jeux)
 	longeur = jeux->longeur_map;
 	jeux->longeur_map = ft_lnmap(jeux);
 	if ( jeux->lnmap ==  longeur )
-		ft_message_erreur(1);
+		ft_message_erreur("erreur\n");
 	while(jeux->map[i])
 	{
 		if(jeux->lnmap != ft_strlen(jeux->map[i]))
-			ft_message_erreur(1);
+			ft_message_erreur("erreur\n");
 		i++;
 	}
 }

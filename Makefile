@@ -6,7 +6,7 @@
 #    By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 19:42:40 by mben-sal          #+#    #+#              #
-#    Updated: 2023/04/01 12:50:54 by mben-sal         ###   ########.fr        #
+#    Updated: 2023/04/08 21:40:56 by mben-sal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = so_long
 HEADER = so_long.h
 
 SRC = 	./so_long.c\
+		./ft_validation_chemin.c\
 		./ft_message_erreur.c\
 		./git_next_ligne/get_next_line_utils.c\
 		./git_next_ligne/get_next_line.c\

@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:59:36 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/01 22:20:25 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/08 16:35:02 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void ft_so_long(t_game *jeux)
 	ft_check_rectangulaire(jeux);
 	ft_check_murs(jeux);
 	ft_check_les_element(jeux);
+	copier_map(jeux);
+	ft_validation_chemin(jeux);
 	
 }
 
@@ -58,17 +60,17 @@ int main(int ac , char **av)
 	int y;
 	
 	if (ac != 2)
-		ft_message_erreur(1);
+		ft_message_erreur("erreur\n");
 	ft_check_map(av[1]);
 	ft_validation_map(av[1] , &jeux);
 	initVar(&jeux);
 	ft_so_long(&jeux);
 	jeux.mlx = mlx_init();
+	conver_image(&jeux);
 	jeux.m = 0;
 	x = jeux.lnmap * 60;
 	y = jeux.longeur_map * 70;
 	jeux.win = mlx_new_window(jeux.mlx, x, y, "so_long");
-	conver_image(&jeux);
 	remplir_map(&jeux);
 	mlx_key_hook(jeux.win, &key_hook, &jeux);
 	
