@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:32:38 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/09 15:18:20 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/09 23:39:34 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,9 @@ typedef struct s_game_bonus
 	int x;
 	int y;
 	int m;
+	int n;
 	int count;
+	void *tom[6];
 }	t_game_bonus;
 
 
@@ -111,6 +113,7 @@ char	**ft_split(char *s, char c);
 void	ft_putstr(char *s);
 void	moveMouse_bonus(t_game_bonus *jeux);
 void ft_so_long_bonus(t_game_bonus *jeux);
+void	moveTome_bonus(t_game_bonus *jeux);
 
 # endif
 

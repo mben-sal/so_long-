@@ -6,7 +6,7 @@
 #    By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 19:42:40 by mben-sal          #+#    #+#              #
-#    Updated: 2023/04/09 15:19:39 by mben-sal         ###   ########.fr        #
+#    Updated: 2023/04/09 23:19:01 by mben-sal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,9 +61,9 @@ $(NAME) : $(OBJ) $(HEADER)
 $(NAME_B) : $(OBJ_B) $(HEADER_B)
 			$(CC) $(CFLAGS) $(OBJ_B) -lmlx -framework OpenGL -framework AppKit -o $(NAME_B)
 clean:
-		rm -rf $(OBJ)$(OBJ_B)
+		rm -rf $(OBJ) $(OBJ_B)
 
 fclean: clean
-		rm -rf $(NAME)$(NAME_B)
+		rm -rf $(NAME) $(NAME_B)
 
 re:	fclean all bonus

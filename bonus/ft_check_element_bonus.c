@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 14:12:15 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/09 14:17:28 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/09 23:44:10 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ void ft_check_bonus (t_game_bonus *jeux)
 		j = 0;
 		while(jeux->map[i][j])
 		{
-			if(jeux->map[i][j] != '1' && jeux->map[i][j] != '0'&& jeux->map[i][j] != 'C' && jeux->map[i][j] != 'P' && jeux->map[i][j] != 'E')
+			if(jeux->map[i][j] != '1' && jeux->map[i][j] != '0'&& jeux->map[i][j] != 'C' &&
+			jeux->map[i][j] != 'P' && jeux->map[i][j] != 'E' && jeux->map[i][j] != 'N')
 				ft_message_erreur_bonus("erreur\n");
 			j++;
 		}
