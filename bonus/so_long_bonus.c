@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:31:38 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/09 15:17:24 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/12 21:48:37 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,13 @@ int	key_hook_bonus(int keycode, t_game_bonus *jeux)
 	
 }
 
+int		loopEnemy(t_game_bonus *jeux)
+{
+	remplir_map_bonus(jeux);
+	enemy_tom(jeux);
+	return 0;
+}
+
 int main(int ac , char **av)
 {
 	t_game_bonus jeux;
@@ -71,6 +78,7 @@ int main(int ac , char **av)
 	x = jeux.lnmap * 60;
 	y = jeux.longeur_map * 70;
 	jeux.win = mlx_new_window(jeux.mlx, x, y, "so_long");
+	mlx_loop_hook(jeux.mlx, &loopEnemy, &jeux);
 	remplir_map_bonus(&jeux);
 	mlx_key_hook(jeux.win, &key_hook_bonus, &jeux);
 	

@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:55:15 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/10 00:32:35 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/12 21:54:43 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,56 @@ void	moveMouse_bonus(t_game_bonus *jeux)
 void	moveTome_bonus(t_game_bonus *jeux)
 {
 	// char **mouse;
-	static int i;
+	// static int i;
+	// i = 0;
+	// mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->tom[jeux->n] ,jeux->x,jeux->y);
+
+	int len;
+	int i;
+	int j;
+
+	len = jeux->lnmap;
+	jeux->y = 0;
 	i = 0;
-	jeux->n = 0;
-	mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->tom[jeux->n] ,jeux->x,jeux->y);
-	
-	if( i > 10)
+	while (jeux->map[i])
 	{
-		i++;
-		if(jeux->n < 6)
+		j = 0;
+		jeux->x = 0;
+		while(jeux->map[i][j])
 		{
-			mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->tom[jeux->n] ,jeux->x,jeux->y);
-			jeux->n++;
+			if(jeux->map[i][j] == 'N')
+			{
+				mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->tom[jeux->n] ,jeux->x,jeux->y);
+				jeux->n++;
+				if (jeux->n == 2)
+					jeux->n= 0;
+			}
+			j++;
+			jeux->x += 60;
 		}
-		else
-			jeux->n = 0;
-		i = 0;
+		jeux->x = 0;
+		jeux->y += 70;
+		i++;
 	}
+	// enemy_tom(jeux);
+}
+void    enemy_tom(t_game_bonus *jeux)
+{
+    static int		position;
+    int            i;
+    int            j;
+
+    i = -1;
+    if (position++ == 100)
+    {
+        while (++i < jeux->longeur_map)
+        {
+            j = -1;
+            while (++j < ft_strlen(jeux->map[i]))
+                move_tom(jeux, i, j);
+        }
+       	position = 0;
+    }
 }
 void remplir_map_bonus(t_game_bonus *jeux)
 {
@@ -58,7 +91,7 @@ void remplir_map_bonus(t_game_bonus *jeux)
 		jeux->x = 0;
 		while(jeux->map[i][j])
 		{
-				mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->the_lawn ,jeux->x,jeux->y);
+			mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->the_lawn ,jeux->x,jeux->y);
 			if(jeux->map[i][j] == '1')
 				mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->the_wall ,jeux->x,jeux->y);
 			if(jeux->map[i][j] == 'P')
@@ -68,8 +101,8 @@ void remplir_map_bonus(t_game_bonus *jeux)
 				mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->image_cheese ,jeux->x,jeux->y);
 			if(jeux->map[i][j] == 'E')
 				mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->image_door ,jeux->x,jeux->y);
-			if(jeux->map[i][j] == 'N')
-				moveTome_bonus(jeux);
+			// if(jeux->map[i][j] == 'N')
+				// moveTome_bonus(jeux);
 			j++;
 			jeux->x += 60;
 		}
@@ -77,6 +110,7 @@ void remplir_map_bonus(t_game_bonus *jeux)
 		jeux->y += 70;
 		i++;
 	}
+	moveTome_bonus(jeux);
 }
 
 void conver_image_bonus(t_game_bonus *jeux)
@@ -108,22 +142,22 @@ void conver_image_bonus(t_game_bonus *jeux)
 	jeux->player[3] = mlx_xpm_file_to_image(jeux->mlx ,"./minilibx/mouse4.xpm",&x,&y);
 	if (!jeux->player[3])
 		exit(1);
-	jeux->tom[0] = mlx_xpm_file_to_image(jeux->mlx , "./minilibx/cat1.xpm",&x , &y);
+	jeux->tom[0] = mlx_xpm_file_to_image(jeux->mlx , "./minilibx/tom_so_long.xpm",&x , &y);
 	if (!jeux->tom[0])
 		exit(1);
-	jeux->tom[1] = mlx_xpm_file_to_image(jeux->mlx , "./minilibx/cat2.xpm",&x , &y);
+	jeux->tom[1] = mlx_xpm_file_to_image(jeux->mlx , "./minilibx/mouse4.xpm",&x , &y);
 	if (!jeux->tom[1])
 		exit(1);
-	jeux->tom[2] = mlx_xpm_file_to_image(jeux->mlx , "./minilibx/cat3.xpm",&x , &y);
-	if (!jeux->tom[2])
-		exit(1);
-	jeux->tom[3] = mlx_xpm_file_to_image(jeux->mlx , "./minilibx/cat4.xpm",&x , &y);
-	if (!jeux->tom[3])
-		exit(1);
-	jeux->tom[4] = mlx_xpm_file_to_image(jeux->mlx , "./minilibx/cat5.xpm",&x , &y);
-	if (!jeux->tom[4])
-		exit(1);
-	jeux->tom[5] = mlx_xpm_file_to_image(jeux->mlx , "./minilibx/cat6.xpm",&x , &y);
-	if (!jeux->tom[5])
-		exit(1);
+	// jeux->tom[2] = mlx_xpm_file_to_image(jeux->mlx , "./minilibx/cat3.xpm",&x , &y);
+	// if (!jeux->tom[2])
+	// 	exit(1);
+	// jeux->tom[3] = mlx_xpm_file_to_image(jeux->mlx , "./minilibx/cat4.xpm",&x , &y);
+	// if (!jeux->tom[3])
+	// 	exit(1);
+	// jeux->tom[4] = mlx_xpm_file_to_image(jeux->mlx , "./minilibx/cat5.xpm",&x , &y);
+	// if (!jeux->tom[4])
+	// 	exit(1);
+	// jeux->tom[5] = mlx_xpm_file_to_image(jeux->mlx , "./minilibx/cat6.xpm",&x , &y);
+	// if (!jeux->tom[5])
+	// 	exit(1);
 }

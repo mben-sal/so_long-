@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:11:03 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/09 15:18:02 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/11 21:51:06 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ typedef struct s_game
 	int y;
 	int m;
 	int count;
+	int e;
+	int i;
 }	t_game;
 typedef struct s_jeux
 {
@@ -113,5 +115,6 @@ void	moveMouse(t_game *jeux);
 void ft_validation_chemin(t_game *jeux);
 int	ft_check_chemin(t_game *jeux, int y, int x, char point );
 void	copier_map(t_game *jeux);
+
 
 # endif
