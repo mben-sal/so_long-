@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:31:38 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/12 21:48:37 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/13 23:31:13 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	initVar_bonus(t_game_bonus *jeux)
 	jeux->check_c = 0;
 	jeux->check_e = 0;
 	jeux->check_p = 0;
+	jeux->count = 0;
+	jeux->n = 0;
 	jeux->lnmap = ft_strlen(jeux->map[0]);
 	jeux->longeur_map = ft_lnmap_bonus(jeux);
 }
@@ -53,10 +55,30 @@ int	key_hook_bonus(int keycode, t_game_bonus *jeux)
 	
 }
 
+
+void	sprite_animation(t_game_bonus *jeux)
+{
+	static int	frame_gif;
+
+	frame_gif++;
+	if (frame_gif > 10)
+	{
+		jeux->enemy_frame++;
+		if (jeux->enemy_frame > 5)
+			jeux->enemy_frame = 0;
+		frame_gif = 0;
+	}
+}
+
 int		loopEnemy(t_game_bonus *jeux)
 {
+	char	*str;
+
+	str = ft_itoa(jeux->count);
 	remplir_map_bonus(jeux);
+	sprite_animation(jeux);
 	enemy_tom(jeux);
+	mlx_string_put(jeux->mlx, jeux->win, 15, 7, 0x00FFFF00, str);
 	return 0;
 }
 

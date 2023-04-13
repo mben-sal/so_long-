@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:32:38 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/12 21:30:50 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/13 23:27:52 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ typedef struct s_game_bonus
 	int m;
 	int n;
 	int count;
-	void *tom[1];
+	void *tom[6];
+	int	enemy_frame;
 }	t_game_bonus;
 
 
@@ -120,5 +121,6 @@ void ft_move_tom_haut(t_game_bonus *jeux, int i , int j);
 void ft_move_tom_bas(t_game_bonus *jeux, int i , int j);
 void    enemy_tom(t_game_bonus *jeux);
 void    move_tom(t_game_bonus *map, int i, int j);
+char	*ft_itoa(int n);
 # endif
 

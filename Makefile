@@ -6,7 +6,7 @@
 #    By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 19:42:40 by mben-sal          #+#    #+#              #
-#    Updated: 2023/04/11 21:17:58 by mben-sal         ###   ########.fr        #
+#    Updated: 2023/04/13 23:27:36 by mben-sal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ SRC_B = ./bonus/ft_check_element_bonus.c\
 		./git_next_ligne/get_next_line.c\
 		./utils/ft_split.c\
 		./utils/ft_strncmp.c\
+		./utils/ft_itoa.c\
 		./utils/ft_putstr.c
 %.o: %.c
 	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@

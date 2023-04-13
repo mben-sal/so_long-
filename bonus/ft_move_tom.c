@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 21:16:47 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/12 21:50:36 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/13 22:01:47 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void ft_move_tom_gauche(t_game_bonus *jeux, int i , int j)
 {
-	if(jeux->map[i][j - 1] == '1')
+	if(jeux->map[i][j - 1] == '1' || jeux->map[i][j - 1] == 'C'
+	|| jeux->map[i][j - 1] == 'E')
 		return;
 	if(jeux->map[i][j - 1] == 'P')
 	{
@@ -28,7 +29,8 @@ void ft_move_tom_gauche(t_game_bonus *jeux, int i , int j)
 }
 void ft_move_tom_droit(t_game_bonus *jeux, int i , int j)
 {
-	if(jeux->map[i][j + 1] == '1')
+	if(jeux->map[i][j + 1] == '1' || jeux->map[i][j + 1] == 'C' 
+	 || jeux->map[i][j + 1] == 'E')
 		return;
 	if(jeux->map[i][j + 1] == 'P')
 	{
@@ -42,7 +44,8 @@ void ft_move_tom_droit(t_game_bonus *jeux, int i , int j)
 }
 void ft_move_tom_haut(t_game_bonus *jeux, int i , int j)
 {
-	if(jeux->map[i + 1][j] == '1')
+	if(jeux->map[i + 1][j] == '1' || jeux->map[i + 1][j] == 'E' 
+	|| jeux->map[i + 1][j] == 'C')
 		return;
 	if(jeux->map[i + 1][j] == 'P')
 	{
@@ -56,7 +59,8 @@ void ft_move_tom_haut(t_game_bonus *jeux, int i , int j)
 }
 void ft_move_tom_bas(t_game_bonus *jeux, int i , int j)
 {
-	if(jeux->map[i - 1][j] == '1')
+	if(jeux->map[i - 1][j] == '1' || jeux->map[i - 1][j] == 'E'
+	|| jeux->map[i - 1][j] == 'C' )
 		return;
 	if(jeux->map[i - 1][j] == 'P')
 	{
@@ -86,22 +90,3 @@ void    move_tom(t_game_bonus *jeux, int i, int j)
             ft_move_tom_bas(jeux, i, j);
     }
 }
-
-// void    enemy_patrol(t_game_bonus *jeux)
-// {
-//     static int    frame_position;
-//     int            i;
-//     int            j;
-
-//     i = -1;
-//     if (frame_position++ == 100)
-//     {
-//         while (++i < jeux->longeur_map)
-//         {
-//             j = -1;
-//             while (++j < ft_strlen(jeux->map[i]))
-//                 move_enemy(jeux, i, j);
-//         }
-//         frame_position = 0;
-//     }
-// }
