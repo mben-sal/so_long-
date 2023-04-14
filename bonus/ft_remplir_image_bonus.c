@@ -6,17 +6,28 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:55:15 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/13 23:23:55 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/14 21:10:49 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "so_long_bonus.h"
 
+void	vitesse_mouse(t_game_bonus *jeux)
+{
+	static int	vitesse;
+
+	vitesse++;
+	if (vitesse > 10)
+	{
+		jeux->mouse_vitesse++;
+		if (jeux->mouse_vitesse > 3)
+			jeux->mouse_vitesse = 0;
+		vitesse = 0;
+	}
+}
 void	moveMouse_bonus(t_game_bonus *jeux)
 {
-	// char **mouse;
-
-	mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->player[jeux->m] ,jeux->x,jeux->y);
+	mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->player[jeux->mouse_vitesse] ,jeux->x,jeux->y);
 	jeux->m++;
 	if (jeux->m == 3)
 		jeux->m= 0;
@@ -24,7 +35,7 @@ void	moveMouse_bonus(t_game_bonus *jeux)
 
 void	moveTom_bonus(t_game_bonus *jeux)
 {
-	mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->tom[jeux->enemy_frame] ,jeux->x,jeux->y);
+	mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->tom[jeux->enemy_vitesse] ,jeux->x,jeux->y);
 	jeux->n++;
 	if (jeux->n == 5)
 		jeux->n= 0;
@@ -91,13 +102,10 @@ void remplir_map_bonus(t_game_bonus *jeux)
 				mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->the_wall ,jeux->x,jeux->y);
 			if(jeux->map[i][j] == 'P')
 				moveMouse_bonus(jeux);
-				// mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->player_1, jeux->x,jeux->y);
 			if(jeux->map[i][j] == 'C')
 				mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->image_cheese ,jeux->x,jeux->y);
 			if(jeux->map[i][j] == 'E')
 				mlx_put_image_to_window(jeux->mlx,jeux->win,jeux->image_door ,jeux->x,jeux->y);
-			// if(jeux->map[i][j] == 'N')
-				// moveTome_bonus(jeux);
 			j++;
 			jeux->x += 60;
 		}

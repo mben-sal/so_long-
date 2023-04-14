@@ -6,12 +6,45 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 14:04:08 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/09 16:08:09 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/14 21:27:26 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "so_long_bonus.h"
+void ft_check_enemy_gauche(t_game_bonus *jeux)
+{
+	if(jeux->map[jeux->y][jeux->x - 1] == 'N')
+	{
+		printf("game over");
+		exit(1);
+	}
+}
 
+void ft_check_enemy_droit (t_game_bonus *jeux)
+{
+	if(jeux->map[jeux->y][jeux->x + 1] == 'N')
+	{
+		printf("game over");
+		exit(1);
+	}
+}
+void ft_check_enemy_bas (t_game_bonus *jeux)
+{
+	if(jeux->map[jeux->y + 1][jeux->x ] == 'N')
+	{
+		printf("game over");
+		exit(1);
+	}
+}
+
+void ft_check_enemy_haut (t_game_bonus *jeux)
+{
+	if(jeux->map[jeux->y - 1][jeux->x ] == 'N')
+	{
+		printf("game over");
+		exit(1);
+	}
+}
 void ft_gauche_bonus(t_game_bonus *jeux)
 {
 	if(jeux->map[jeux->y][jeux->x - 1] == '1')
@@ -33,6 +66,7 @@ void ft_gauche_bonus(t_game_bonus *jeux)
 			exit(0);
 		}
 	}
+	ft_check_enemy_gauche(jeux);
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y][jeux->x - 1] = 'P';
 	jeux->count++;
@@ -62,6 +96,7 @@ void ft_droit_bonus(t_game_bonus *jeux)
 			exit(0);
 		}
 	}
+	ft_check_enemy_droit(jeux);
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y][jeux->x + 1] = 'P';
 	jeux->count++;
@@ -91,6 +126,7 @@ void ft_bas_bonus(t_game_bonus *jeux)
 			exit(0);
 		}
 	}
+	ft_check_enemy_bas(jeux);
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y + 1][jeux->x] = 'P';
 	jeux->count++;
@@ -120,6 +156,7 @@ void ft_haut_bonus(t_game_bonus *jeux)
 			exit(0);
 		}
 	}
+	ft_check_enemy_haut(jeux);
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y - 1][jeux->x] = 'P';
 	jeux->count++;

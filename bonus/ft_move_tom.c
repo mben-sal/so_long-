@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 21:16:47 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/13 22:01:47 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/14 21:16:53 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void    move_tom(t_game_bonus *jeux, int i, int j)
     if (jeux->map[i][j] == 'N')
     {
         rand = arc4random_uniform(4);
-		printf("test => %d\n", rand);
         if (rand == 0)
             ft_move_tom_gauche(jeux, i, j);
         else if (rand == 1)

@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:31:38 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/13 23:31:13 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/14 21:13:44 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ void	initVar_bonus(t_game_bonus *jeux)
 
 int	key_hook_bonus(int keycode, t_game_bonus *jeux)
 {
-	// (void)jeux; 
-	// printf("Hello from key_hook! %d\n", keycode);
 	cherche_player_bonus(jeux);
 	if(keycode == 0)
 		ft_gauche_bonus(jeux);
@@ -56,28 +54,29 @@ int	key_hook_bonus(int keycode, t_game_bonus *jeux)
 }
 
 
-void	sprite_animation(t_game_bonus *jeux)
+void	vitesse_tom(t_game_bonus *jeux)
 {
-	static int	frame_gif;
+	static int	vitesse;
 
-	frame_gif++;
-	if (frame_gif > 10)
+	vitesse++;
+	if (vitesse > 10)
 	{
-		jeux->enemy_frame++;
-		if (jeux->enemy_frame > 5)
-			jeux->enemy_frame = 0;
-		frame_gif = 0;
+		jeux->enemy_vitesse++;
+		if (jeux->enemy_vitesse > 5)
+			jeux->enemy_vitesse = 0;
+		vitesse = 0;
 	}
 }
 
-int		loopEnemy(t_game_bonus *jeux)
+int		Enemy(t_game_bonus *jeux)
 {
 	char	*str;
 
 	str = ft_itoa(jeux->count);
 	remplir_map_bonus(jeux);
-	sprite_animation(jeux);
+	vitesse_tom(jeux);
 	enemy_tom(jeux);
+	vitesse_mouse(jeux);
 	mlx_string_put(jeux->mlx, jeux->win, 15, 7, 0x00FFFF00, str);
 	return 0;
 }
@@ -100,7 +99,7 @@ int main(int ac , char **av)
 	x = jeux.lnmap * 60;
 	y = jeux.longeur_map * 70;
 	jeux.win = mlx_new_window(jeux.mlx, x, y, "so_long");
-	mlx_loop_hook(jeux.mlx, &loopEnemy, &jeux);
+	mlx_loop_hook(jeux.mlx, &Enemy, &jeux);
 	remplir_map_bonus(&jeux);
 	mlx_key_hook(jeux.win, &key_hook_bonus, &jeux);
 	
