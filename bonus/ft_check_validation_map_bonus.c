@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:46:57 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/09 13:49:28 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/14 21:52:49 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void ft_validation_map_bonus(char *av , t_game_bonus *jeux)
 		ligne = get_next_line(fd);
 		if(ligne == NULL)
 			break;
+		if (ligne[0] == '\n')
+			ft_message_erreur("erreur\n");
 		des_lignes = ft_strjoin(des_lignes, ligne);
 	}
 	if (des_lignes[0] == '\0')
