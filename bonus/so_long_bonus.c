@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:31:38 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/14 21:13:44 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/14 21:58:24 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		Enemy(t_game_bonus *jeux)
 	remplir_map_bonus(jeux);
 	vitesse_tom(jeux);
 	enemy_tom(jeux);
-	vitesse_mouse(jeux);
+	vitesse_mouse_bonus(jeux);
 	mlx_string_put(jeux->mlx, jeux->win, 15, 7, 0x00FFFF00, str);
 	return 0;
 }

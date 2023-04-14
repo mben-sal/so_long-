@@ -6,13 +6,13 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:55:15 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/14 21:10:49 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/14 21:57:09 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "so_long_bonus.h"
 
-void	vitesse_mouse(t_game_bonus *jeux)
+void	vitesse_mouse_bonus(t_game_bonus *jeux)
 {
 	static int	vitesse;
 

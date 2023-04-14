@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:32:38 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/13 23:48:59 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/14 21:57:48 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,7 @@ void    enemy_tom(t_game_bonus *jeux);
 void    move_tom(t_game_bonus *map, int i, int j);
 char	*ft_itoa(int n);
 void    vitesse_tom(t_game_bonus *jeux);
-void	vitesse_mouse(t_game_bonus *jeux);
+void	vitesse_mouse_bonus(t_game_bonus *jeux);
+
 # endif
 
