@@ -6,7 +6,7 @@
 #    By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 19:42:40 by mben-sal          #+#    #+#              #
-#    Updated: 2023/04/13 23:27:36 by mben-sal         ###   ########.fr        #
+#    Updated: 2023/04/15 16:54:52 by mben-sal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRC_B = ./bonus/ft_check_element_bonus.c\
 		./bonus/move_jerry_bonus.c\
 		./bonus/so_long_bonus.c\
 		./bonus/ft_move_tom.c\
+		./bonus/windows_image.c\
 		./git_next_ligne/get_next_line_utils.c\
 		./git_next_ligne/get_next_line.c\
 		./utils/ft_split.c\

@@ -6,86 +6,90 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 21:16:47 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/14 21:30:48 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/15 15:43:53 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"so_long_bonus.h"
 
-void ft_move_tom_gauche(t_game_bonus *jeux, int i , int j)
+void	ft_move_tom_gauche(t_game_bonus *jeux, int i, int j)
 {
-	if(jeux->map[i][j - 1] == '1' || jeux->map[i][j - 1] == 'C'
+	if (jeux->map[i][j - 1] == '1' || jeux->map[i][j - 1] == 'C'
 	|| jeux->map[i][j - 1] == 'E')
-		return;
-	if(jeux->map[i][j - 1] == 'P')
+		return ;
+	if (jeux->map[i][j - 1] == 'P')
 	{
 		jeux->map[i][j] = '0';
 		jeux->map[i][j - 1] = 'N';
-		printf("game over\n");
+		ft_message_erreur_bonus("game over\n");
 		exit(1);
 	}
 	jeux->map[i][j] = '0';
 	jeux->map[i][j - 1] = 'N';
 }
-void ft_move_tom_droit(t_game_bonus *jeux, int i , int j)
+
+void	ft_move_tom_droit(t_game_bonus *jeux, int i, int j)
 {
-	if(jeux->map[i][j + 1] == '1' || jeux->map[i][j + 1] == 'C' 
-	 || jeux->map[i][j + 1] == 'E')
-		return;
-	if(jeux->map[i][j + 1] == 'P')
+	if (jeux->map[i][j + 1] == '1' || jeux->map[i][j + 1] == 'C'
+	|| jeux->map[i][j + 1] == 'E')
+		return ;
+	if (jeux->map[i][j + 1] == 'P')
 	{
 		jeux->map[i][j] = '0';
 		jeux->map[i][j + 1] = 'N';
-		printf("game over\n");
+		ft_message_erreur_bonus("game over\n");
 		exit(1);
 	}
 	jeux->map[i][j] = '0';
 	jeux->map[i][j + 1] = 'N';
 }
-void ft_move_tom_haut(t_game_bonus *jeux, int i , int j)
+
+void	ft_move_tom_haut(t_game_bonus *jeux, int i, int j)
 {
-	if(jeux->map[i + 1][j] == '1' || jeux->map[i + 1][j] == 'E' 
+	if (jeux->map[i + 1][j] == '1' || jeux->map[i + 1][j] == 'E'
 	|| jeux->map[i + 1][j] == 'C')
-		return;
-	if(jeux->map[i + 1][j] == 'P')
+		return ;
+	if (jeux->map[i + 1][j] == 'P')
 	{
 		jeux->map[i][j] = '0';
 		jeux->map[i + 1][j] = 'N';
-		printf("game over\n");
+		ft_message_erreur_bonus("game over\n");
 		exit(1);
 	}
 	jeux->map[i][j] = '0';
 	jeux->map[i + 1][j] = 'N';
 }
-void ft_move_tom_bas(t_game_bonus *jeux, int i , int j)
+
+void	ft_move_tom_bas(t_game_bonus *jeux, int i, int j)
 {
-	if(jeux->map[i - 1][j] == '1' || jeux->map[i - 1][j] == 'E'
+	if (jeux->map[i - 1][j] == '1' || jeux->map[i - 1][j] == 'E'
 	|| jeux->map[i - 1][j] == 'C' )
-		return;
-	if(jeux->map[i - 1][j] == 'P')
+		return ;
+	if (jeux->map[i - 1][j] == 'P')
 	{
 		jeux->map[i][j] = '0';
 		jeux->map[i - 1][j] = 'N';
-		printf("game over\n");
+		ft_message_erreur_bonus("game over\n");
 		exit(1);
 	}
 	jeux->map[i][j] = '0';
 	jeux->map[i - 1][j] = 'N';
 }
-void    move_tom(t_game_bonus *jeux, int i, int j)
-{
-    int        rand;
 
-    if (jeux->map[i][j] == 'N')
-    {
-        rand = arc4random_uniform(4);
-        if (rand == 0)
-            ft_move_tom_gauche(jeux, i, j);
-        else if (rand == 1)
-            ft_move_tom_droit(jeux, i, j);
-        else if (rand == 2)
-            ft_move_tom_haut(jeux, i, j);
-        else if (rand == 3)
-            ft_move_tom_bas(jeux, i, j);
-    }
+void	move_tom(t_game_bonus *jeux, int i, int j)
+{
+	int	rand;
+
+	if (jeux->map[i][j] == 'N')
+	{
+		rand = arc4random_uniform(4);
+		if (rand == 0)
+			ft_move_tom_gauche(jeux, i, j);
+		else if (rand == 1)
+			ft_move_tom_droit(jeux, i, j);
+		else if (rand == 2)
+			ft_move_tom_haut(jeux, i, j);
+		else if (rand == 3)
+			ft_move_tom_bas(jeux, i, j);
+	}
 }

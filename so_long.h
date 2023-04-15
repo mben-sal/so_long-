@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:11:03 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/14 22:06:53 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/15 17:27:27 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,8 @@
 # include<string.h>
 # include <sys/errno.h>
 # include <errno.h>
-#include <mlx.h>
-#include <stdbool.h>
-
-#define true 1
-#define false 0
+# include <mlx.h>
+# include <stdbool.h>
 
 typedef struct s_spl
 {
@@ -42,79 +39,80 @@ typedef struct s_spl
 	char	**ptr;
 }	t_spl;
 
-typedef struct s_game 
+typedef struct s_game
 {
 	int		check_e;
 	int		check_c;
-	int 	check_p;
+	int		check_p;
 	int		len_map;
-	int 	lnmap;
+	int		lnmap;
 	int		longeur_map;
 	void	*img;
 	void	*mlx;
 	void	*win;
 	char	**map;
-	char **map2;
-	int 	count_c;
-	void *image_door;
-	void *image_cheese;
-	void *player_1;
-	void *player_2;
-	void *player_3;
-	void *player_4;
-	void *player[4];
-	void *the_lawn;
-	void *the_wall;
-	int x;
-	int y;
-	int m;
-	int count;
-	int e;
-	int i;
+	char	**map2;
+	int		count_c;
+	void	*image_door;
+	void	*image_cheese;
+	void	*player_1;
+	void	*player_2;
+	void	*player_3;
+	void	*player_4;
+	void	*player[4];
+	void	*the_lawn;
+	void	*the_wall;
+	int		x;
+	int		y;
+	int		m;
+	int		count;
+	int		e;
+	int		i;
 }	t_game;
+
 typedef struct s_jeux
 {
-	int i;
-	int j;
-	int langeur_map2;
-	int lnmap2;
-	char **map2;
-	
+	int		i;
+	int		j;
+	int		langeur_map2;
+	int		lnmap2;
+	char	**map2;
 }	t_jeux;
 
-void ft_message_erreur(char *str);
-int 	ft_strlen(char *str);
+void	ft_message_erreur(char *str);
+int		ft_strlen(char *str);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(char *str, int c);
 char	*ft_strdup(char *s1);
-char	*ft_substr(char *s, int start, int  len);
+char	*ft_substr(char *s, int start, int len);
 char	*get_next_line(int fd);
 char	*ft_save(char **str);
 char	*ft_read(int fd, char*save, char*buff);
 void	ft_free(char **dst, char *src, char *to_free);
-int	ft_line(char *s);
-int	ft_strncmp(char *first, char *second);
+int		ft_line(char *s);
+int		ft_strncmp(char *first, char *second);
 char	**ft_split(char *s, char c);
 void	ft_putstr(char *s);
-void ft_check_map(char *map);
-void ft_validation_map(char *av , t_game *jeux);
-void ft_check_murs(t_game *jeux);
-void ft_murs(t_game *jeux);
-void ft_check_rectangulaire(t_game *jeux);
-void ft_check(t_game *jeux);
-void ft_check_les_element(t_game *jeux);
-int ft_lnmap(t_game *jeux);
-void ft_gauche(t_game *jeux);
-void ft_droit(t_game *jeux);
-void ft_bas(t_game *jeux);
-void ft_haut(t_game *jeux);
-void remplir_map(t_game *jeux);
-void cherche_player(t_game *jeux);
-void conver_image(t_game *jeux);
-void	moveMouse(t_game *jeux);
-void ft_validation_chemin(t_game *jeux);
-int	ft_check_chemin(t_game *jeux, int y, int x, char point );
+void	ft_check_map(char *map);
+void	ft_validation_map(char *av, t_game *jeux);
+void	ft_check_murs(t_game *jeux);
+void	ft_murs(t_game *jeux);
+void	ft_check_rectangulaire(t_game *jeux);
+void	ft_check(t_game *jeux);
+void	ft_check_les_element(t_game *jeux);
+int		ft_lnmap(t_game *jeux);
+void	ft_gauche(t_game *jeux);
+void	ft_droit(t_game *jeux);
+void	ft_bas(t_game *jeux);
+void	ft_haut(t_game *jeux);
+void	remplir_map(t_game *jeux);
+void	cherche_player(t_game *jeux);
+void	conver_image(t_game *jeux);
+void	movemouse(t_game *jeux);
+void	ft_validation_chemin(t_game *jeux);
+int		ft_check_chemin(t_game *jeux, int y, int x, char point);
 void	copier_map(t_game *jeux);
 void	vitesse_mouse(t_game *jeux);
+char	free_map(char **s);
 
-# endif
+#endif

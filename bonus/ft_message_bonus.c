@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:41:20 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/09 13:41:58 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/15 15:35:09 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void ft_message_erreur_bonus(char *str)
 {
-		ft_putstr(str);
+	ft_putstr(str);
 	exit(1);
 }
