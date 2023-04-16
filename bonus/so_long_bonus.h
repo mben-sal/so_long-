@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:32:38 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/16 00:00:20 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:23:00 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct s_game_bonus
 void	ft_message_erreur_bonus(char *str);
 void	ft_check_map_bonus(char *map);
 void	ft_validation_map_bonus(char *av, t_game_bonus *jeux);
-void	initVar_bonus(t_game_bonus *jeux);
+void	initvar_bonus(t_game_bonus *jeux);
 void	ft_so_long_bonus(t_game_bonus *jeux);
 void	conver_image_bonus(t_game_bonus *jeux);
 void	remplir_map_bonus(t_game_bonus *jeux);
@@ -124,4 +124,6 @@ void	vitesse_tom(t_game_bonus *jeux);
 void	vitesse_mouse_bonus(t_game_bonus *jeux);
 int		fermer_window_bonus(t_game_bonus *jeux);
 void	free_bonus_map(char **map);
+void	ft_putnbr(int n);
+void	ft_putchar(char c);
 #endif

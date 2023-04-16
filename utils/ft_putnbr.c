@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_message_erreur.c                                :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/15 13:45:00 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/15 22:21:05 by mben-sal         ###   ########.fr       */
+/*   Created: 2023/04/16 14:40:22 by mben-sal          #+#    #+#             */
+/*   Updated: 2023/04/16 16:24:49 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../mandatory/so_long.h"
 
-void	ft_message_erreur(char *str)
+void	ft_putchar(char c)
 {
-	ft_putstr(str);
-	exit(1);
+	write(1, &c, 1);
 }
 
-void	free_map(char **map)
+void	ft_putnbr(int n)
 {
-	int	i;
+	long	nbr;
 
-	i = 0;
-	while (map[i])
+	nbr = n;
+	if (nbr <= 9)
 	{
-		free(map[i]);
-		i++;
+		ft_putchar(nbr + 48);
 	}
-	free(map);
-}
-
-int	fermer_window(t_game *jeux)
-{
-	mlx_destroy_window(jeux->mlx, jeux->win);
-	free_map(jeux->map);
-	exit(0);
+	else
+	{
+		ft_putnbr(nbr / 10);
+		ft_putnbr(nbr % 10);
+	}
 }

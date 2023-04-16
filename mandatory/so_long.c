@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:59:36 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/15 22:21:25 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 14:30:34 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,5 @@ int	main(int ac, char **av)
 	mlx_hook(jeux.win, 17, (1L << 17), &fermer_window, &jeux);
 	mlx_loop(jeux.mlx);
 	free_map(jeux.map);
-	return(0);
+	return (0);
 }

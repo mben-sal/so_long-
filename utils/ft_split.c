@@ -6,11 +6,11 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 17:08:38 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/15 17:26:04 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 16:13:26 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../mandatory/so_long.h"
 
 static	int	ft_word_count(char *str, char c)
 {
@@ -54,7 +54,7 @@ static	char	*alloc_words(char *s, int start, int finish)
 	char	*word;
 
 	i = 0;
-	word = (char*) malloc(sizeof(*s) * (finish - start) + 1);
+	word = (char *) malloc(sizeof(*s) * (finish - start) + 1);
 	if (!word)
 		return (NULL);
 	while (s[i] && start < finish)
@@ -75,7 +75,7 @@ static	char	**fill_str(t_spl *spl, char *s, char c)
 			spl->index = spl->i;
 		else if ((s[spl->i] == c || spl->i == spl->len) && spl->index >= 0)
 		{
-			spl->ptr[spl->j] = alloc_words((char*)s, spl->index, spl->i);
+			spl->ptr[spl->j] = alloc_words((char *)s, spl->index, spl->i);
 			if (!spl->ptr[spl->j])
 			{
 				ft_fre (spl->ptr);
@@ -100,30 +100,10 @@ char	**ft_split(char *s, char c)
 		return (NULL);
 	spl.len = ft_strlen(s);
 	spl.index = -1;
-	spl.count = ft_word_count((char*)s, c);
-	spl.ptr = malloc(sizeof(char*) * (spl.count + 1));
+	spl.count = ft_word_count((char *)s, c);
+	spl.ptr = malloc(sizeof(char *) * (spl.count + 1));
 	if (!spl.ptr)
 		return (NULL);
-	fill_str(&spl, (char*)s, c);
+	fill_str(&spl, (char *)s, c);
 	return (spl.ptr);
 }
-
-// #include <stdio.h>
-// int main()
-// {
-// 	char*str;
-// 	int i;
-// 	i = 0;
-// 	char**spl;
-	
-// 	str = "manar.ben.sal";
-// 	spl = ft_split(str,'.');
-
-// 	while(spl[i])
-// 	{
-		
-// 		printf("%s\n", spl[i]);
-// 		i++;
-// 	}
-// 	return 0;
-// }

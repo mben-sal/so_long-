@@ -6,25 +6,26 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 14:04:08 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/14 21:27:26 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:27:58 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "so_long_bonus.h"
-void ft_check_enemy_gauche(t_game_bonus *jeux)
+#include "so_long_bonus.h"
+
+void	ft_check_enemy_gauche(t_game_bonus *jeux)
 {
-	if(jeux->map[jeux->y][jeux->x - 1] == 'N')
+	if (jeux->map[jeux->y][jeux->x - 1] == 'N')
 	{
-		printf("game over");
+		ft_message_erreur_bonus("game over");
 		exit(1);
 	}
 }
 
-void ft_check_enemy_droit (t_game_bonus *jeux)
+void	ft_check_enemy_droit (t_game_bonus *jeux)
 {
 	if(jeux->map[jeux->y][jeux->x + 1] == 'N')
 	{
-		printf("game over");
+		ft_message_erreur_bonus("game over");
 		exit(1);
 	}
 }
@@ -41,7 +42,7 @@ void ft_check_enemy_haut (t_game_bonus *jeux)
 {
 	if(jeux->map[jeux->y - 1][jeux->x ] == 'N')
 	{
-		printf("game over");
+		ft_message_erreur_bonus("game over");
 		exit(1);
 	}
 }
@@ -62,7 +63,6 @@ void ft_gauche_bonus(t_game_bonus *jeux)
 		if(jeux->check_c == 0)
 		{
 			jeux->count++;
-			printf("%d\n" , jeux->count);
 			exit(0);
 		}
 	}
@@ -70,7 +70,6 @@ void ft_gauche_bonus(t_game_bonus *jeux)
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y][jeux->x - 1] = 'P';
 	jeux->count++;
-	printf("%d\n" , jeux->count);
 	mlx_clear_window(jeux->mlx , jeux->win);
 	remplir_map_bonus(jeux);
 }
@@ -92,7 +91,6 @@ void ft_droit_bonus(t_game_bonus *jeux)
 		if(jeux->check_c == 0)
 		{
 			jeux->count++;
-			printf("%d\n" , jeux->count);
 			exit(0);
 		}
 	}
@@ -100,7 +98,6 @@ void ft_droit_bonus(t_game_bonus *jeux)
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y][jeux->x + 1] = 'P';
 	jeux->count++;
-	printf("%d\n" , jeux->count);
 	mlx_clear_window(jeux->mlx , jeux->win);
 	remplir_map_bonus(jeux);
 }
@@ -122,7 +119,6 @@ void ft_bas_bonus(t_game_bonus *jeux)
 		if(jeux->check_c == 0)
 		{
 			jeux->count++;
-			printf("%d\n" , jeux->count);
 			exit(0);
 		}
 	}
@@ -130,7 +126,6 @@ void ft_bas_bonus(t_game_bonus *jeux)
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y + 1][jeux->x] = 'P';
 	jeux->count++;
-	printf("%d\n" , jeux->count);
 	mlx_clear_window(jeux->mlx , jeux->win);
 	remplir_map_bonus(jeux);
 }
@@ -152,7 +147,6 @@ void ft_haut_bonus(t_game_bonus *jeux)
 		if(jeux->check_c == 0)
 		{
 			jeux->count++;
-			printf("%d\n" , jeux->count);
 			exit(0);
 		}
 	}
@@ -160,7 +154,6 @@ void ft_haut_bonus(t_game_bonus *jeux)
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y - 1][jeux->x] = 'P';
 	jeux->count++;
-	printf("%d\n" , jeux->count);
 	mlx_clear_window(jeux->mlx , jeux->win);
 	remplir_map_bonus(jeux);
 }

@@ -6,15 +6,15 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 12:10:32 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/15 22:06:34 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 16:12:50 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../so_long.h"
+#include"../mandatory/so_long.h"
 
-int 	ft_strlen(char*str)
+int	ft_strlen(char *str)
 {
-	int 	i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -32,7 +32,7 @@ char	*ft_strjoin(char*s1, char*s2)
 	char	*ptr;
 
 	len = ft_strlen(s1) + ft_strlen(s2);
-	ptr = (char*)malloc(sizeof(char) * (len + 1));
+	ptr = (char *)malloc(sizeof(char) * (len + 1));
 	if (!ptr)
 		return (NULL);
 	i = 0;
@@ -48,8 +48,8 @@ char	*ft_strjoin(char*s1, char*s2)
 
 char	*ft_strchr(char*str, int c)
 {
-	int 			i;
-	int 			n;
+	int	i;
+	int	n;
 
 	i = 0;
 	n = ft_strlen(str);
@@ -57,7 +57,7 @@ char	*ft_strchr(char*str, int c)
 	{
 		if (str[i] == (char)c)
 		{
-			return ((char*)&str[i]);
+			return ((char *)&str[i]);
 		}
 		i++;
 	}
@@ -66,15 +66,15 @@ char	*ft_strchr(char*str, int c)
 
 char	*ft_strdup(char*s1)
 {
-	int 	i;
-	int 	len;
+	int		i;
+	int		len;
 	char	*ptr;
 	char	*str;
 
 	i = 0;
-	str = (char*)s1;
+	str = (char *)s1;
 	len = ft_strlen(str);
-	ptr = (char*)malloc(sizeof(char) *(len + 1));
+	ptr = (char *)malloc(sizeof(char) *(len + 1));
 	if (!ptr)
 		return (NULL);
 	while (i < len)
@@ -86,9 +86,9 @@ char	*ft_strdup(char*s1)
 	return (ptr);
 }
 
-char	*ft_substr(char *s, int start, int  len)
+char	*ft_substr(char *s, int start, int len)
 {
-	int 	i;
+	int		i;
 	char	*ptr;
 
 	i = 0;

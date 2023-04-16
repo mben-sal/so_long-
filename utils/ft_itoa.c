@@ -6,11 +6,11 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 12:32:34 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/13 23:26:23 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 16:14:04 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../mandatory/so_long.h"
 
 static	int	counter(long nbr)
 {

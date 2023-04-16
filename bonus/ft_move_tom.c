@@ -6,11 +6,11 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 21:16:47 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/15 15:43:53 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:03:47 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long_bonus.h"
+#include "so_long_bonus.h"
 
 void	ft_move_tom_gauche(t_game_bonus *jeux, int i, int j)
 {
@@ -63,7 +63,7 @@ void	ft_move_tom_haut(t_game_bonus *jeux, int i, int j)
 void	ft_move_tom_bas(t_game_bonus *jeux, int i, int j)
 {
 	if (jeux->map[i - 1][j] == '1' || jeux->map[i - 1][j] == 'E'
-	|| jeux->map[i - 1][j] == 'C' )
+	|| jeux->map[i - 1][j] == 'C')
 		return ;
 	if (jeux->map[i - 1][j] == 'P')
 	{

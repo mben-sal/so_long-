@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 12:23:32 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/16 00:29:08 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 15:51:24 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	ft_gauche(t_game *jeux)
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y][jeux->x - 1] = 'P';
 	jeux->count++;
-	printf("%d\n", jeux->count);
+	ft_putnbr(jeux->count);
+	ft_putchar('\n');
 	mlx_clear_window(jeux->mlx, jeux->win);
 	remplir_map(jeux);
 }
@@ -57,7 +58,8 @@ void	ft_droit(t_game *jeux)
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y][jeux->x + 1] = 'P';
 	jeux->count++;
-	printf("%d\n", jeux->count);
+	ft_putnbr(jeux->count);
+	ft_putchar('\n');
 	mlx_clear_window(jeux->mlx, jeux->win);
 	remplir_map(jeux);
 }
@@ -82,7 +84,8 @@ void	ft_bas(t_game *jeux)
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y + 1][jeux->x] = 'P';
 	jeux->count++;
-	printf("%d\n", jeux->count);
+	ft_putnbr(jeux->count);
+	ft_putchar('\n');
 	mlx_clear_window(jeux->mlx, jeux->win);
 	remplir_map(jeux);
 }
@@ -107,7 +110,8 @@ void	ft_haut(t_game *jeux)
 	jeux->map[jeux->y][jeux->x] = '0';
 	jeux->map[jeux->y - 1][jeux->x] = 'P';
 	jeux->count++;
-	printf("%d\n", jeux->count);
+	ft_putnbr(jeux->count);
+	ft_putchar('\n');
 	mlx_clear_window(jeux->mlx, jeux->win);
 	remplir_map(jeux);
 }

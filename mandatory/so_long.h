@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:11:03 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/15 22:08:14 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 15:51:45 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,7 @@ int		ft_check_chemin(t_game *jeux, int y, int x, char point);
 void	copier_map(t_game *jeux);
 void	vitesse_mouse(t_game *jeux);
 void	free_map(char **s);
-int	fermer_window(t_game *jeux);
+int		fermer_window(t_game *jeux);
+void	ft_putnbr(int n);
+void	ft_putchar(char c);
 #endif

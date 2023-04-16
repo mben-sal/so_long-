@@ -6,11 +6,11 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 10:18:35 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/15 22:07:41 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 16:13:14 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../mandatory/so_long.h"
 
 int	ft_line(char*s)
 {
@@ -89,7 +89,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buff = malloc(sizeof(char*) * (BUFFER_SIZE + 1));
+	buff = malloc(sizeof(char *) * (BUFFER_SIZE + 1));
 	if (!buff)
 	{
 		free(buff);
