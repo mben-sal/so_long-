@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:46:57 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/16 00:05:43 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 22:15:45 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_validation_map_bonus(char *av, t_game_bonus *jeux)
 	fd = open(av, O_RDONLY);
 	if (fd < 0)
 		ft_message_erreur_bonus("erreur : aucune fiches\n");
-	des_lignes = strdup("");
+	des_lignes = ft_strdup("");
 	while (1)
 	{
 		ligne = get_next_line(fd);

@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:31:38 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/16 21:52:24 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 22:24:12 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_so_long_bonus(t_game_bonus *jeux)
 	ft_check_les_element_bonus(jeux);
 	copier_map_bonus(jeux);
 	ft_validation_chemin_bonus(jeux);
+	free_bonus_map(jeux->map2);
 }
 
 void	initvar_bonus(t_game_bonus *jeux)
@@ -61,6 +62,7 @@ int	enemy(t_game_bonus *jeux)
 	enemy_tom(jeux);
 	vitesse_mouse_bonus(jeux);
 	mlx_string_put(jeux->mlx, jeux->win, 15, 7, 0x00FFFF00, str);
+	free (str);
 	return (0);
 }
 
@@ -76,7 +78,6 @@ int	main(int ac, char **av)
 	ft_validation_map_bonus(av[1], &jeux);
 	initvar_bonus(&jeux);
 	ft_so_long_bonus(&jeux);
-	free_bonus_map(jeux.map2);
 	jeux.mlx = mlx_init();
 	conver_image_bonus(&jeux);
 	jeux.m = 0;

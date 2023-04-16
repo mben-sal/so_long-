@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 14:24:54 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/16 21:45:24 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 22:16:39 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,6 @@ void	ft_validation_chemin_bonus(t_game_bonus *jeux)
 		ft_message_erreur_bonus("le joueur ne trouve pas aucun chemin\n");
 		exit(1);
 	}
-	ft_retour_map_bonus(jeux);
+	// ft_retour_map_bonus(jeux);
 	ft_chemin_for_cheese_bonus(jeux);
 }
