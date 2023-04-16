@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:32:38 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/16 17:23:00 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 22:09:07 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,4 +126,9 @@ int		fermer_window_bonus(t_game_bonus *jeux);
 void	free_bonus_map(char **map);
 void	ft_putnbr(int n);
 void	ft_putchar(char c);
+void	ft_check_enemy_gauche(t_game_bonus *jeux);
+void	ft_check_enemy_droit(t_game_bonus *jeux);
+void	ft_check_enemy_bas(t_game_bonus *jeux);
+void	ft_check_enemy_haut(t_game_bonus *jeux);
+
 #endif

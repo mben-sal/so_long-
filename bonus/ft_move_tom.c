@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 21:16:47 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/16 17:03:47 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 21:28:42 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_move_tom_gauche(t_game_bonus *jeux, int i, int j)
 		jeux->map[i][j] = '0';
 		jeux->map[i][j - 1] = 'N';
 		ft_message_erreur_bonus("game over\n");
+		free_bonus_map(jeux->map);
 		exit(1);
 	}
 	jeux->map[i][j] = '0';
@@ -38,6 +39,7 @@ void	ft_move_tom_droit(t_game_bonus *jeux, int i, int j)
 		jeux->map[i][j] = '0';
 		jeux->map[i][j + 1] = 'N';
 		ft_message_erreur_bonus("game over\n");
+		free_bonus_map(jeux->map);
 		exit(1);
 	}
 	jeux->map[i][j] = '0';
@@ -54,6 +56,7 @@ void	ft_move_tom_haut(t_game_bonus *jeux, int i, int j)
 		jeux->map[i][j] = '0';
 		jeux->map[i + 1][j] = 'N';
 		ft_message_erreur_bonus("game over\n");
+		free_bonus_map(jeux->map);
 		exit(1);
 	}
 	jeux->map[i][j] = '0';
@@ -70,6 +73,7 @@ void	ft_move_tom_bas(t_game_bonus *jeux, int i, int j)
 		jeux->map[i][j] = '0';
 		jeux->map[i - 1][j] = 'N';
 		ft_message_erreur_bonus("game over\n");
+		free_bonus_map(jeux->map);
 		exit(1);
 	}
 	jeux->map[i][j] = '0';

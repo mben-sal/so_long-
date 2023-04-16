@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 14:12:15 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/16 16:44:31 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 21:23:12 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_check_bonus(t_game_bonus *jeux)
 				jeux->map[i][j] != 'C' &&
 				jeux->map[i][j] != 'P' && jeux->map[i][j] != 'E' &&
 				jeux->map[i][j] != 'N')
-				ft_message_erreur_bonus("erreur : besion P ou C ou E\n");
+				ft_message_erreur_bonus("erreur : besion P ou C ou E, N\n");
 			j++;
 		}
 		i++;
