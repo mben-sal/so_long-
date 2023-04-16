@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 13:31:38 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/14 21:58:24 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 00:48:59 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void ft_so_long_bonus(t_game_bonus *jeux)
 	ft_check_les_element_bonus(jeux);
 	copier_map_bonus(jeux);
 	ft_validation_chemin_bonus(jeux);
-	
+	free_bonus_map(jeux->map2);
 }
 
 void	initVar_bonus(t_game_bonus *jeux)
@@ -88,7 +88,7 @@ int main(int ac , char **av)
 	int y;
 	
 	if (ac != 2)
-		ft_message_erreur_bonus("erreur\n");
+		ft_message_erreur_bonus("seul argument\n");
 	ft_check_map_bonus(av[1]);
 	ft_validation_map_bonus(av[1] , &jeux);
 	initVar_bonus(&jeux);
@@ -102,6 +102,8 @@ int main(int ac , char **av)
 	mlx_loop_hook(jeux.mlx, &Enemy, &jeux);
 	remplir_map_bonus(&jeux);
 	mlx_key_hook(jeux.win, &key_hook_bonus, &jeux);
-	
+	mlx_hook(jeux.win, 17, (1L << 17), &fermer_window_bonus, &jeux);
 	mlx_loop(jeux.mlx);
+	free_bonus_map(jeux.map);
+	return(0);
 }

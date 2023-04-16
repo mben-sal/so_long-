@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 21:39:38 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/15 14:45:16 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 00:22:18 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,5 @@ void	ft_validation_chemin(t_game *jeux)
 	}
 	ft_retour_map(jeux);
 	ft_chemin_for_cheese(jeux);
+	
 }

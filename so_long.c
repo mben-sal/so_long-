@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:59:36 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/15 17:28:59 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/15 22:21:25 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 void	ft_so_long(t_game *jeux)
 {
-	int	i;
-
-	i = 0;
 	ft_check_rectangulaire(jeux);
 	ft_check_murs(jeux);
 	ft_check_les_element(jeux);
 	copier_map(jeux);
 	ft_validation_chemin(jeux);
+	free_map(jeux->map2);
 }
 
 void	initvar(t_game *jeux)
@@ -56,7 +54,7 @@ int	main(int ac, char **av)
 	int		y;
 
 	if (ac != 2)
-		ft_message_erreur("erreur\n");
+		ft_message_erreur("seul argument\n");
 	ft_check_map(av[1]);
 	ft_validation_map(av[1], &jeux);
 	initvar(&jeux);
@@ -69,6 +67,8 @@ int	main(int ac, char **av)
 	jeux.win = mlx_new_window(jeux.mlx, x, y, "so_long");
 	remplir_map(&jeux);
 	mlx_key_hook(jeux.win, &key_hook, &jeux);
+	mlx_hook(jeux.win, 17, (1L << 17), &fermer_window, &jeux);
 	mlx_loop(jeux.mlx);
-	// free_map(jeux.map);
+	free_map(jeux.map);
+	return(0);
 }

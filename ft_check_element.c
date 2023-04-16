@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 19:45:57 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/15 13:38:39 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/15 21:32:34 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_check_les_element(t_game *jeux)
 		i++;
 	}
 	if (jeux->check_c < 1 || jeux->check_e < 1 || jeux->check_p != 1)
-		ft_message_erreur("erreur\n");
+		ft_message_erreur("erreur : le nombre du P ou C ou E insuffisant \n");
 }
 
 void	ft_check(t_game *jeux)
@@ -66,7 +66,7 @@ void	ft_check(t_game *jeux)
 			if (jeux->map[i][j] != '1' && jeux->map[i][j] != '0'
 			&& jeux->map[i][j] != 'C'
 			&& jeux->map[i][j] != 'P' && jeux->map[i][j] != 'E')
-				ft_message_erreur("erreur\n");
+				ft_message_erreur("erreur : besion P ou C ou E\n");
 			j++;
 		}
 		i++;
@@ -83,11 +83,11 @@ void	ft_check_rectangulaire(t_game *jeux)
 	longeur = jeux->longeur_map;
 	jeux->longeur_map = ft_lnmap(jeux);
 	if (jeux->lnmap == longeur)
-		ft_message_erreur("erreur\n");
+		ft_message_erreur("map n'est pas rectangulaire\n");
 	while (jeux->map[i])
 	{
 		if (jeux->lnmap != ft_strlen(jeux->map[i]))
-			ft_message_erreur("erreur\n");
+			ft_message_erreur("map n'est pas rectangulaire\n");
 		i++;
 	}
 }

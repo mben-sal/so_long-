@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 19:23:58 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/15 13:41:03 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/15 21:28:34 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_check_murs(t_game *jeux)
 	while (jeux->map[i])
 	{
 		if (jeux->map[i][0] != '1' || jeux->map[i][ln_ligne - 1] != '1')
-			ft_message_erreur("erreur\n");
+			ft_message_erreur("erreur : map besion d'un murs\n");
 		i++;
 	}
 	ft_murs(jeux);
@@ -40,14 +40,14 @@ void	ft_murs(t_game *jeux)
 	while (jeux->map[0][j])
 	{
 		if (jeux->map[0][j] != '1')
-			ft_message_erreur("erreur\n");
+			ft_message_erreur("erreur : map besion d'un murs\n");
 		j++;
 	}
 	j = 0;
 	while (jeux->map[jeux->longeur_map - 1][j])
 	{
 		if (jeux->map[jeux->longeur_map - 1][j] != '1')
-			ft_message_erreur("erreur\n");
+			ft_message_erreur("erreur : map besion d'un murs\n");
 		j++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 14:12:15 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/15 15:55:43 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/16 00:48:25 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_check_les_element_bonus(t_game_bonus *jeux)
 		i++;
 	}
 	if (jeux->check_c < 1 || jeux->check_e < 1 || jeux->check_p != 1)
-		ft_message_erreur_bonus("erreur\n");
+		ft_message_erreur_bonus("erreur : le nombre du P ou C ou E insuffisant\n");
 }
 
 void	ft_check_bonus(t_game_bonus *jeux)
@@ -67,12 +67,13 @@ void	ft_check_bonus(t_game_bonus *jeux)
 				jeux->map[i][j] != 'C' &&
 				jeux->map[i][j] != 'P' && jeux->map[i][j] != 'E'&&
 				jeux->map[i][j] != 'N')
-				ft_message_erreur_bonus("erreur\n");
+				ft_message_erreur_bonus("erreur : besion P ou C ou E\n");
 			j++;
 		}
 		i++;
 	}
 }
+
 void	ft_check_rectangulaire_bonus(t_game_bonus *jeux)
 {
 	int	longeur;
@@ -83,11 +84,11 @@ void	ft_check_rectangulaire_bonus(t_game_bonus *jeux)
 	longeur = jeux->longeur_map;
 	jeux->longeur_map = ft_lnmap_bonus(jeux);
 	if (jeux->lnmap == longeur)
-		ft_message_erreur_bonus("erreur\n");
+		ft_message_erreur_bonus("map n'est pas rectangulaire\n");
 	while (jeux->map[i])
 	{
 		if (jeux->lnmap != ft_strlen(jeux->map[i]))
-			ft_message_erreur_bonus("erreur\n");
+			ft_message_erreur_bonus("map n'est pas rectangulaire\n");
 		i++;
 	}
 }
