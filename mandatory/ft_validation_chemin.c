@@ -6,7 +6,7 @@
 /*   By: mben-sal <mben-sal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 21:39:38 by mben-sal          #+#    #+#             */
-/*   Updated: 2023/04/16 14:29:19 by mben-sal         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:45:04 by mben-sal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	copier_map(t_game *jeux)
 	int	i;
 
 	i = 0;
-	jeux->map2 = malloc(sizeof(char *) * (jeux->longeur_map));
+	jeux->map2 = malloc(sizeof(char *) * (jeux->longeur_map + 1));
 	if (!jeux->map2)
 		return ;
 	while (i < jeux->longeur_map)
